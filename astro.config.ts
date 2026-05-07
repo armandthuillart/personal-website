@@ -12,10 +12,6 @@ export default defineConfig({
       weights: ["100 900"],
     },
   ],
-  i18n: {
-    locales: ["en", "fr"],
-    defaultLocale: "en",
-  },
   integrations: [mdx(), sitemap()],
   site: "https://armandthuillart.com",
   vite: {

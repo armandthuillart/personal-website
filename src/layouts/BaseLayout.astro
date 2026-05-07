@@ -2,7 +2,6 @@
 import "@styles/global.css";
 import { Font } from "astro:assets";
 import ogImage from "@public/og-image.png";
-import { getLangFromURL } from "@i18n/utils";
 
 interface Props {
   title: string;
@@ -10,16 +9,14 @@ interface Props {
 
 let { title } = Astro.props;
 
-const lang = getLangFromURL(Astro.url);
-const ogLocale = lang === "fr" ? "fr_FR" : "en_US";
-const isIndexPage = Astro.url.pathname === "/" || Astro.url.pathname === "/fr/";
+const isIndexPage = Astro.url.pathname === "/";
 
 if (!isIndexPage) {
   title = `${title} · Armand Thuillart`;
 }
 ---
 
-<html lang={lang} class="antialiased scheme-light-dark">
+<html lang="en" class="antialiased scheme-light-dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -54,7 +51,7 @@ if (!isIndexPage) {
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:image" content={new URL(ogImage.src, Astro.site)} />
-    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="Armand Thuillart" />
     <meta property="og:description" content="Designer and developer." />
 

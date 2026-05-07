@@ -1,19 +1,17 @@
 ---
 import { getCollection } from "astro:content";
-import { getLocalePostHref } from "@i18n/utils";
 import Icon from "@components/Icon.astro";
 
 interface Props {
-  locale: string;
   title: string;
 }
 
-let { locale, title } = Astro.props;
+let { title } = Astro.props;
 
 const currentYear = new Date().getFullYear();
 
 const posts = (await getCollection("blog"))
-  .filter((post) => post.id.startsWith(`${locale}/`) && post.data.date)
+  .filter((post) => post.id !== "index" && post.data.date)
   .sort((a, b) => b.data.date!.valueOf() - a.data.date!.valueOf());
 ---
 
@@ -35,7 +33,7 @@ const posts = (await getCollection("blog"))
           <li class="transition-opacity duration-200 group-hover:opacity-50 hover:opacity-100">
             <a
               class="flex h-9 items-center justify-between gap-4"
-              href={getLocalePostHref(locale, post.id)}
+              href={`/${post.id}`}
             >
               <p
                 class:list={[
