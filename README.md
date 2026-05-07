@@ -4,7 +4,7 @@
 
 [![Astro](https://img.shields.io/badge/Astro-^6.0-FF5D01?style=flat-square&logo=astro&logoColor=white)](https://astro.build/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![Vite+](https://img.shields.io/badge/Vite+-0.1.18-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Vite+](https://img.shields.io/badge/Vite+-0.1.20-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
 
 </div>
 
@@ -42,11 +42,11 @@ Posts live in `src/content/blog/`.
 
 - `title` (string)
 - `description` (string)
-- `topic` (string, optional)
+- `icon` (string, optional)
 - `date` (date, optional)
-- `draft` (boolean)
+- `draft` (boolean, optional)
 
-Posts with a `date` and `topic` (and `draft: false`) appear on `/writings`.
+Posts with an `icon` and `date` (and `draft` not `true`) appear on the home page.
 
 ## Deploy
 
