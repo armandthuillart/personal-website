@@ -11,7 +11,7 @@ let { title } = Astro.props;
 const currentYear = new Date().getFullYear();
 
 const posts = (await getCollection("blog"))
-  .filter((post) => post.id !== "index" && post.data.date)
+  .filter((post) => post.data.icon && post.data.date)
   .sort((a, b) => b.data.date!.valueOf() - a.data.date!.valueOf());
 ---
 
@@ -25,7 +25,6 @@ const posts = (await getCollection("blog"))
         const nextYear = nextPost
           ? new Date(nextPost.data.date!).getFullYear()
           : null;
-
         const hideYear = currentYear !== nextYear;
         const postYear = post.data.date?.getFullYear();
 

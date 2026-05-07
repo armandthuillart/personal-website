@@ -14,10 +14,10 @@ export async function getStaticPaths() {
   const pages = await getCollection("blog");
 
   return pages.map((page) => {
-    const slug = page.id === "index" ? undefined : page.id;
-
     return {
-      params: { slug },
+      params: {
+        slug: page.id === "index" ? undefined : page.id,
+      },
       props: { page },
     };
   });
@@ -30,8 +30,8 @@ const index = Astro.url.pathname === "/";
 
 function toMonthYear(date: Date) {
   const formatter = new Intl.DateTimeFormat("en-US", {
-    year: "numeric",
     month: "long",
+    year: "numeric",
   });
   return formatter.format(date);
 }

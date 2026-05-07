@@ -8,7 +8,7 @@ export default defineConfig({
     {
       cssVariable: "--font-inter",
       name: "Inter",
-      provider: fontProviders.fontsource(),
+      provider: fontProviders.google(),
       weights: ["100 900"],
     },
   ],
