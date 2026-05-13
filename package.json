@@ -23,5 +23,5 @@
     "vite-plus": "0.1.21",
     "wrangler": "^4.90.1"
   },
-  "packageManager": "bun@1.3.13"
+  "packageManager": "bun@1.3.14"
 }
