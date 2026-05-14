@@ -62,7 +62,7 @@ if (!isIndexPage) {
     <meta name="twitter:description" content="Designer and developer." />
     <meta name="twitter:image" content={new URL(ogImage.src, Astro.site)} />
 
-    <Font cssVariable="--font-inter" preload />
+    <Font cssVariable="--font-inter" preload={[{ style: "normal" }]} />
 
     <script>
       let style = document.createElement("style");
