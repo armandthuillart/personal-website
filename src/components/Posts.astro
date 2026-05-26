@@ -8,8 +8,6 @@ interface Props {
 
 let { title } = Astro.props;
 
-const currentYear = new Date().getFullYear();
-
 const posts = (await getCollection("blog"))
   .filter((post) => post.data.icon && post.data.date)
   .sort((a, b) => b.data.date!.valueOf() - a.data.date!.valueOf());
@@ -21,12 +19,12 @@ const posts = (await getCollection("blog"))
   <ul class="group flex flex-col">
     {
       posts.map((post, i) => {
-        const nextPost = posts[i + 1];
-        const nextYear = nextPost
-          ? new Date(nextPost.data.date!).getFullYear()
-          : null;
-        const hideYear = currentYear !== nextYear;
         const postYear = post.data.date?.getFullYear();
+        const prevPost = posts[i - 1];
+        const prevYear = prevPost
+          ? new Date(prevPost.data.date!).getFullYear()
+          : null;
+        const hideYear = prevYear === postYear;
 
         return (
           <li class="transition-opacity duration-200 group-hover:opacity-50 hover:opacity-100">
