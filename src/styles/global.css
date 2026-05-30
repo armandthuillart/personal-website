@@ -6,29 +6,23 @@
   --color-border: var(--border);
   --color-foreground: var(--foreground);
   --color-muted-foreground: var(--muted-foreground);
-  --color-primary: var(--primary);
-  --color-selection: var(--selection);
   --font-sans: var(--font-inter);
 }
 
 :root {
-  --accent: oklch(76.7% 0 0);
+  --accent: oklch(52.2% 0.177 256);
   --background: oklch(100% 0 0);
-  --border: oklch(92.5% 0 0);
-  --foreground: oklch(29.3% 0 0);
-  --muted-foreground: oklch(56.2% 0 0);
-  --primary: oklch(0% 0 0);
-  --selection: oklch(92.5% 0 0);
+  --border: oklch(96.3% 0.00665 286);
+  --foreground: oklch(23.2% 0.00381 286);
+  --muted-foreground: oklch(64.8% 0.00735 286);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --accent: oklch(38.7% 0 0);
-    --background: oklch(17.8% 0 0);
-    --border: oklch(29.3% 0 0);
-    --foreground: oklch(94.5% 0 0);
-    --muted-foreground: oklch(76.7% 0 0);
-    --primary: oklch(100% 0 0);
-    --selection: oklch(34.1% 0 0);
+    --accent: oklch(66.9% 0.181 252);
+    --background: oklch(0% 0 0);
+    --border: oklch(38% 0.00504 286);
+    --foreground: oklch(97.1% 0.00265 286);
+    --muted-foreground: oklch(62.2% 0.00742 286);
   }
 }

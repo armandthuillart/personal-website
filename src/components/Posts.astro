@@ -1,22 +1,17 @@
 ---
 import { getCollection } from "astro:content";
-import Icon from "@components/Icon.astro";
-
-interface Props {
-  title: string;
-}
-
-let { title } = Astro.props;
+import Footer from "@components/Footer.astro";
 
 const posts = (await getCollection("blog"))
-  .filter((post) => post.data.icon && post.data.date)
+  .filter((post) => post.id !== "index")
+  .filter((post) => !post.data.draft)
   .sort((a, b) => b.data.date!.valueOf() - a.data.date!.valueOf());
 ---
 
 <div class="mt-9 space-y-1.5">
-  <h1 class="text-muted-foreground text-sm font-[460]">{title}</h1>
+  <h3 class="text-muted">Writing</h3>
 
-  <ul class="group flex flex-col">
+  <ul class="group/ul border-border flex flex-col border-t">
     {
       posts.map((post, i) => {
         const postYear = post.data.date?.getFullYear();
@@ -26,40 +21,24 @@ const posts = (await getCollection("blog"))
           : null;
         const hideYear = prevYear === postYear;
 
+        const date = post.data.date.toLocaleDateString("en-US", {
+          month: "numeric",
+          day: "numeric",
+        });
+
         return (
-          <li class="transition-opacity duration-200 group-hover:opacity-50 hover:opacity-100">
+          <li class="group/li relative group-hover/ul:**:data-highlight:opacity-50 hover:**:data-highlight:opacity-100">
             <a
-              class="flex h-9 items-center justify-between gap-4"
+              class="border-border ml-12 flex h-10 not-group-last/li:border-b sm:ml-25"
               href={`/${post.id}`}
             >
-              <p
-                class:list={[
-                  "text-muted-foreground text-sm",
-                  hideYear && "invisible",
-                ]}
-              >
-                {postYear}
-              </p>
+              <div class="flex flex-1 items-center justify-between">
+                <h2 data-highlight>{post.data.title}</h2>
 
-              <div class="flex w-full items-center gap-2.5">
-                <div class="border-border flex size-6 shrink-0 items-center justify-center rounded-md border">
-                  {post.data.icon && (
-                    <Icon
-                      class="text-accent group-hover:text-muted-foreground size-4 transition-colors duration-200"
-                      name={post.data.icon}
-                    />
-                  )}
-                </div>
-
-                <div class="flex w-full justify-between">
-                  <h1 class="text-primary text-sm font-[460]">
-                    {post.data.title}
-                  </h1>
-
-                  <p class="text-muted-foreground text-sm opacity-80 transition-opacity duration-200 group-hover:opacity-100 max-sm:hidden">
-                    {post.data.description}
-                  </p>
-                </div>
+                <time class="text-muted-foreground">
+                  <span data-highlight>{date}</span>
+                  {!hideYear && <span class="absolute left-0">{postYear}</span>}
+                </time>
               </div>
             </a>
           </li>
@@ -68,3 +47,5 @@ const posts = (await getCollection("blog"))
     }
   </ul>
 </div>
+
+<Footer />

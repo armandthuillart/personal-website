@@ -7,7 +7,8 @@ import HeadingTwo from "@components/HeadingTwo.astro";
 import ListItem from "@components/ListItem.astro";
 import OrderedList from "@components/OrderedList.astro";
 import Icon from "@components/Icon.astro";
-import Footer from "@components/Footer.astro";
+
+import Posts from "@components/Posts.astro";
 import Navigation from "@components/Navigation.astro";
 
 export async function getStaticPaths() {
@@ -30,8 +31,9 @@ const index = Astro.url.pathname === "/";
 
 function toMonthYear(date: Date) {
   const formatter = new Intl.DateTimeFormat("en-US", {
-    month: "long",
+    day: "numeric",
     year: "numeric",
+    month: "short",
   });
   return formatter.format(date);
 }
@@ -43,6 +45,8 @@ const components = {
   ol: OrderedList,
   p: Paragraph,
 };
+
+const date = toMonthYear(page.data.date);
 ---
 
 <BaseLayout title={page.data.title}>
@@ -50,30 +54,24 @@ const components = {
     !index && (
       <aside class="static top-0 w-fit max-md:mb-8 md:fixed md:translate-y-28 md:max-xl:-translate-x-30 xl:-translate-x-60">
         <a
-          class="text-muted-foreground relative flex items-center gap-1 text-sm transition-opacity duration-200 before:absolute before:-inset-4 hover:opacity-60 dark:hover:opacity-70"
+          class="not-hover:text-muted-foreground relative flex items-center gap-1 text-sm before:absolute before:-inset-4"
           href="/"
         >
           <Icon class="size-2.5" name="arrow-u-down-left" />
-
-          <span class="text-muted-foreground text-xs leading-none font-[460]">
-            Home
-          </span>
+          <span class="text-xs leading-none">Home</span>
         </a>
       </aside>
     )
   }
 
   <article class="space-y-4">
-    <div class:list={["space-y-1", index ? "mb-6" : "mb-7"]}>
-      <h1 class="text-primary text-sm font-medium">{page.data.title}</h1>
-
-      <p class="text-muted-foreground text-sm/none font-[460] capitalize">
-        {page.data.date ? toMonthYear(page.data.date) : "Design Engineer"}
-      </p>
-    </div>
+    <header class="mb-6">
+      <h1 class="font-medium">{page.data.title}</h1>
+      <time class="text-muted-foreground">Updated {date}</time>
+    </header>
 
     <Content components={components} />
 
-    {index ? <Footer /> : <Navigation />}
+    {index ? <Posts /> : <Navigation />}
   </article>
 </BaseLayout>

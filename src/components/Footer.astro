@@ -1,37 +1,15 @@
 ---
-const quotes = [
-  "Character is destiny.",
-  "Become who you are.",
-  "Believe you can and you're halfway there.",
-  "He who is brave is free.",
-  "Know thyself.",
-  "Don’t dream of winning, train for it.",
-  "More work than you want, less than you fear.",
-  "See things as they are.",
-  "Rest, but don’t quit.",
-  "The place to find who you are is where you stand.",
-];
-
-const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-
 const formatter = new Intl.DateTimeFormat("en-US", {
-  hour: "2-digit",
-  minute: "2-digit",
+  hour: "numeric",
   hour12: true,
+  minute: "2-digit",
   timeZone: "Europe/Paris",
-  timeZoneName: "shortOffset",
 });
-const display = formatter.format(new Date());
+
+const display = formatter.format(new Date()).replace(" ", "").toLowerCase();
 ---
 
-<footer class="mt-11.5 flex flex-col">
-  <p
-    class="text-accent dark:text-muted-foreground/50 inline-flex text-xs font-[460]"
-  >
-    {randomQuote}
-  </p>
-
-  <time class="text-accent dark:text-muted-foreground/50 text-xs font-[460]">
-    {display}
-  </time>
+<footer class="text-muted-foreground mt-10 mb-20 flex flex-col text-xs">
+  <hr class="border-border h-px w-12.5" />
+  <time class="mt-9">{display} in Paris, France ツ</time>
 </footer>

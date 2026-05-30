@@ -9,11 +9,9 @@ const blog = defineCollection({
   }),
   schema: () =>
     z.object({
-      date: z.optional(z.coerce.date()),
-      icon: z.optional(z.string()),
-      draft: z.optional(z.boolean()),
+      date: z.coerce.date(),
+      draft: z.boolean(),
       title: z.string(),
-      description: z.string(),
     }),
 });
 
