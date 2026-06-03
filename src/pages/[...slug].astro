@@ -1,15 +1,14 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { getCollection, render } from "astro:content";
+import { toMonthYear } from "@lib/date";
 import Paragraph from "@components/Paragraph.astro";
 import Anchor from "@components/Anchor.astro";
 import HeadingTwo from "@components/HeadingTwo.astro";
 import ListItem from "@components/ListItem.astro";
 import OrderedList from "@components/OrderedList.astro";
-import Icon from "@components/Icon.astro";
 
 import Posts from "@components/Posts.astro";
-import Navigation from "@components/Navigation.astro";
 import Aside from "@components/Aside.astro";
 
 export async function getStaticPaths() {
@@ -29,15 +28,6 @@ const { page } = Astro.props;
 const { Content } = await render(page);
 
 const index = Astro.url.pathname === "/";
-
-function toMonthYear(date: Date) {
-  const formatter = new Intl.DateTimeFormat("en-US", {
-    day: "numeric",
-    year: "numeric",
-    month: "short",
-  });
-  return formatter.format(date);
-}
 
 const components = {
   a: Anchor,
@@ -61,6 +51,6 @@ const date = toMonthYear(page.data.date);
 
     <Content components={components} />
 
-    {index ? <Posts /> : <Navigation />}
+    {index && <Posts />}
   </article>
 </BaseLayout>
