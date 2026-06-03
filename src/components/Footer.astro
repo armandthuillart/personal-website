@@ -1,12 +1,7 @@
 ---
-const formatter = new Intl.DateTimeFormat("en-US", {
-  hour: "numeric",
-  hour12: true,
-  minute: "2-digit",
-  timeZone: "Europe/Paris",
-});
+import { toParisTime } from "@lib/date";
 
-const display = formatter.format(new Date()).replace(" ", "").toLowerCase();
+const display = toParisTime(new Date());
 ---
 
 <footer class="text-muted-foreground mt-10 mb-20 flex flex-col text-xs">

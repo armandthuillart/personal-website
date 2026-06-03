@@ -1,11 +1,12 @@
 ---
 import { getCollection } from "astro:content";
+import { toShortDate } from "@lib/date";
 import Footer from "@components/Footer.astro";
 
 const posts = (await getCollection("blog"))
   .filter((post) => post.id !== "index")
   .filter((post) => !post.data.draft)
-  .sort((a, b) => b.data.date!.valueOf() - a.data.date!.valueOf());
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <div class="mt-9 space-y-1.5">
@@ -14,17 +15,12 @@ const posts = (await getCollection("blog"))
   <ul class="group/ul border-border flex flex-col border-t">
     {
       posts.map((post, i) => {
-        const postYear = post.data.date?.getFullYear();
+        const postYear = post.data.date.getFullYear();
         const prevPost = posts[i - 1];
-        const prevYear = prevPost
-          ? new Date(prevPost.data.date!).getFullYear()
-          : null;
+        const prevYear = prevPost ? prevPost.data.date.getFullYear() : null;
         const hideYear = prevYear === postYear;
 
-        const date = post.data.date.toLocaleDateString("en-US", {
-          month: "numeric",
-          day: "numeric",
-        });
+        const date = toShortDate(post.data.date);
 
         return (
           <li class="group/li relative group-hover/ul:**:data-highlight:opacity-50 hover:**:data-highlight:opacity-100">
