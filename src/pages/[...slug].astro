@@ -7,6 +7,7 @@ import Anchor from "@components/Anchor.astro";
 import HeadingTwo from "@components/HeadingTwo.astro";
 import ListItem from "@components/ListItem.astro";
 import OrderedList from "@components/OrderedList.astro";
+import Code from "@components/Code.astro";
 
 import Posts from "@components/Posts.astro";
 import Aside from "@components/Aside.astro";
@@ -31,6 +32,7 @@ const index = Astro.url.pathname === "/";
 
 const components = {
   a: Anchor,
+  code: Code,
   h2: HeadingTwo,
   li: ListItem,
   ol: OrderedList,

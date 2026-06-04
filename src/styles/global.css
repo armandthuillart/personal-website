@@ -5,7 +5,9 @@
   --color-background: var(--background);
   --color-border: var(--border);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
+  --font-mono: var(--font-fira-code);
   --font-sans: var(--font-inter);
 }
 
@@ -14,6 +16,7 @@
   --background: oklch(100% 0 0);
   --border: oklch(96.3% 0.00665 286);
   --foreground: oklch(23.2% 0.00381 286);
+  --muted: oklch(97.1% 0.00265 286);
   --muted-foreground: oklch(64.8% 0.00735 286);
 }
 
@@ -23,6 +26,7 @@
     --background: oklch(0% 0 0);
     --border: oklch(24.9% 0.00561 286);
     --foreground: oklch(97.1% 0.00265 286);
+    --muted: oklch(32.2% 0.00526 286);
     --muted-foreground: oklch(62.2% 0.00742 286);
   }
 }

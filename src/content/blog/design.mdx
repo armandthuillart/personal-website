@@ -1,0 +1,73 @@
+---
+date: 2026-06-04
+draft: false
+title: Design for web standards
+---
+
+Here’s how to build incredible websites:
+
+<div class="grid grid-cols-2 text-sm text-muted-foreground">
+  <div></div>
+  <div></div>
+</div>
+
+1. Fast
+
+- Pages need to load as fast as possible (prefer static pages).
+- Optimize [image](https://svelte.dev/docs/kit/performance#Optimizing-assets-Images), [font](https://svelte.dev/docs/kit/performance#Optimizing-assets-Fonts), and [script](https://svelte.dev/docs/kit/performance#Reducing-code-size-External-scripts) loading.
+- Navigation needs to be extremely fast to load and view content.
+
+2. Readable
+
+- Be concise (make every word count).
+- Avoid technical jargon and idioms.
+- Optimize for skimming (good use of **bold**, _italic_, lists, headings, images, etc).
+- Keep the first-time experience simple and slowly reveal complexity.
+- Ensure copy have many examples they can connect to.
+
+3. Helpful
+
+- Make it easy for readers to leave feedback (e.g. typos).
+- [Automate checking](https://andrewwegner.com/find-broken-links-with-github-actions.html) for broken links on git pushes.
+
+4. AI-native
+
+Most traffic now comes from AI crawlers.
+
+- [Prefer cURL](https://x.com/karpathy/status/1914494203696177444) over "click" if possible.
+- Provide [prompts](https://posthog.com/blog/envoy-wizard-llm-agent) in addition to tutorials.
+
+5. Agent-ready
+
+- Support viewing pages as markdown (just add `.md` [to the URL](/design.md)).
+- Serve markdown files when `Accept: text/markdown` is requested.
+- Serve an `llms.txt` file as a directory of markdown files.
+
+6. Polished
+
+- Buttons should have generous hit areas.
+- Sidebars should retain scroll position and expanded state.
+- Ensure good active/hover states for elements.
+- Every heading and section should be linkable with stable anchors.
+- Add metadata/canonical tags to ensure docs show up cleanly in search.
+
+7. Localized
+
+- Don’t display `/en` in the URL by default.
+- Use [server-side routing](https://svelte.dev/playground/de39de663ef2445b8fe17b79c500013b?version=5.56.2) to serve the correct language.
+- Localize static strings and content.
+
+8. Responsive
+
+- Great [mobile menus](https://silkhq.com/#%23example-sidebar) / Safari iOS support.
+- [Tooltips](https://www.shadcn-svelte.com/docs/components/tooltip) on desktop, [popovers](https://www.shadcn-svelte.com/docs/components/popover) on mobile.
+
+9. Accessible
+
+- Ensure all images have `alt` tags.
+- Respect `prefers-reduced-motion` system settings.
+
+10. Usable
+
+- Avoid scroll-smoothing the page.
+- Don't hide the scrollbar.

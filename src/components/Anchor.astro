@@ -11,7 +11,7 @@ const isExternal = /^(https?:)?\/\//.test(hrefString);
 ---
 
 <a
-  class="text-accent decoration-accent decoration-1 underline-offset-2 hover:underline"
+  class="text-accent decoration-accent underline decoration-1 underline-offset-2"
   href={href}
   rel={isExternal ? (rel ?? "noopener noreferrer") : rel}
   target={isExternal ? (target ?? "_blank") : target}
