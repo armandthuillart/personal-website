@@ -6,6 +6,7 @@ import Paragraph from "@components/Paragraph.astro";
 import Anchor from "@components/Anchor.astro";
 import HeadingTwo from "@components/HeadingTwo.astro";
 import ListItem from "@components/ListItem.astro";
+import UnorderedList from "@components/UnorderedList.astro";
 import OrderedList from "@components/OrderedList.astro";
 import Code from "@components/Code.astro";
 
@@ -37,6 +38,7 @@ const components = {
   li: ListItem,
   ol: OrderedList,
   p: Paragraph,
+  ul: UnorderedList,
 };
 
 const date = toMonthYear(page.data.date);
