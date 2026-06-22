@@ -6,16 +6,11 @@ export default defineConfig({
     singleQuote: true,
     sortImports: true,
     sortPackageJson: { sortScripts: true },
-    sortTailwindcss: true,
+    sortTailwindcss: { stylesheet: './src/styles/global.css' },
   },
   lint: {
     ignorePatterns: ['**/.agents/**'],
-    options: {
-      typeAware: true,
-      typeCheck: true,
-    },
+    options: { typeAware: true, typeCheck: true },
   },
-  staged: {
-    '*': 'vp check --fix',
-  },
+  staged: { '*': 'vp check --fix' },
 });
