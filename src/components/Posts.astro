@@ -4,8 +4,7 @@ import { toShortDate } from "@lib/date";
 import Footer from "@components/Footer.astro";
 
 const posts = (await getCollection("blog"))
-  .filter((post) => post.id !== "index")
-  .filter((post) => !post.data.draft)
+  .filter((post) => !post.data.draft && !post.data.index)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 

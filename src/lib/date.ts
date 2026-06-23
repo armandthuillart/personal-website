@@ -5,8 +5,8 @@ const monthYearFormatter = new Intl.DateTimeFormat('en-US', {
 });
 
 const shortDateFormatter = new Intl.DateTimeFormat('en-US', {
-  month: 'numeric',
   day: 'numeric',
+  month: 'short',
 });
 
 const parisTimeFormatter = new Intl.DateTimeFormat('en-US', {
