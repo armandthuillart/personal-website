@@ -10,7 +10,6 @@ interface Props {
 const { title } = Astro.props;
 
 const isIndexPage = Astro.url.pathname === "/";
-
 const pageTitle = isIndexPage ? title : `${title} · Armand Thuillart`;
 ---
 
