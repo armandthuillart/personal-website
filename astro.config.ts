@@ -6,14 +6,14 @@ import { defineConfig, fontProviders } from 'astro/config';
 export default defineConfig({
   fonts: [
     {
-      cssVariable: '--font-inter',
-      name: 'Inter',
+      cssVariable: '--font-fira-code',
+      name: 'Fira Code',
       provider: fontProviders.fontsource(),
       weights: ['100 900'],
     },
     {
-      cssVariable: '--font-fira-code',
-      name: 'Fira Code',
+      cssVariable: '--font-inter',
+      name: 'Inter',
       provider: fontProviders.fontsource(),
       weights: ['100 900'],
     },
