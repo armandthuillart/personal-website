@@ -10,7 +10,10 @@ export default defineConfig({
   },
   lint: {
     ignorePatterns: ['**/.agents/**'],
-    options: { typeAware: true, typeCheck: true },
+    options: {
+      typeAware: true,
+      typeCheck: true,
+    },
   },
   staged: { '*': 'vp check --fix' },
 });

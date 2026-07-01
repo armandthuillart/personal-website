@@ -1,7 +1,7 @@
 const monthYear = new Intl.DateTimeFormat('en-US', {
   day: 'numeric',
-  year: 'numeric',
   month: 'short',
+  year: 'numeric',
 });
 
 const shortDate = new Intl.DateTimeFormat('en-US', {

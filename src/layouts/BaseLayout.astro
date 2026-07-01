@@ -50,20 +50,6 @@ const pageTitle = isIndexPage ? title : `${title} · Armand Thuillart`;
 
     <Font cssVariable="--font-inter" preload={[{ style: "normal" }]} />
     <Font cssVariable="--font-fira-code" preload={[{ style: "normal" }]} />
-
-    <script>
-      let style = document.createElement("style");
-      style.textContent = "* { transition: none !important; }";
-
-      let mm = matchMedia("(prefers-color-scheme: dark)");
-
-      mm.addEventListener("change", () => {
-        if (!style.isConnected) document.head.append(style);
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => style.remove());
-        });
-      });
-    </script>
   </head>
 
   <body

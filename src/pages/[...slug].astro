@@ -14,16 +14,16 @@ import Posts from "@components/Posts.astro";
 import Aside from "@components/Aside.astro";
 
 export async function getStaticPaths() {
-  const pages = await getCollection("blog");
+    const pages = await getCollection("blog");
 
-  return pages.map((page) => {
-    return {
-      params: {
-        slug: page.id === "index" ? undefined : page.id,
-      },
-      props: { page },
-    };
-  });
+    return pages.map((page) => {
+        return {
+            params: {
+                slug: page.id === "index" ? undefined : page.id,
+            },
+            props: { page },
+        };
+    });
 }
 
 const { page } = Astro.props;
@@ -32,29 +32,29 @@ const { Content } = await render(page);
 const index = Astro.url.pathname === "/";
 
 const components = {
-  a: Anchor,
-  code: Code,
-  h2: HeadingTwo,
-  li: ListItem,
-  ol: OrderedList,
-  p: Paragraph,
-  ul: UnorderedList,
+    a: Anchor,
+    code: Code,
+    h2: HeadingTwo,
+    li: ListItem,
+    ol: OrderedList,
+    p: Paragraph,
+    ul: UnorderedList,
 };
 
 const date = toMonthYear(page.data.date);
 ---
 
 <BaseLayout title={page.data.title}>
-  {!index && <Aside />}
+    {!index && <Aside />}
 
-  <article class="space-y-4">
-    <header class="mb-6">
-      <h1 class="font-medium">{page.data.title}</h1>
-      <time class="text-muted-foreground">Updated {date}</time>
-    </header>
+    <article class="space-y-4">
+        <header class="mb-6">
+            <h1 class="font-medium">{page.data.title}</h1>
+            <time class="text-muted-foreground">Updated {date}</time>
+        </header>
 
-    <Content components={components} />
+        <Content components={components} />
 
-    {index && <Posts />}
-  </article>
+        {index && <Posts />}
+    </article>
 </BaseLayout>

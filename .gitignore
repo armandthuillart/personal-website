@@ -14,8 +14,5 @@ node_modules
 .astro
 dist
 
-# pnpm
-pnpm-lock.yaml
-
 # Cloudflare
 .wrangler

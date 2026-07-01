@@ -5,7 +5,7 @@
       "source": "mattpocock/skills",
       "sourceType": "github",
       "skillPath": "skills/engineering/ask-matt/SKILL.md",
-      "computedHash": "f3ac3351e2a242ce2591e4f8475424d58f62db3f5786332b78f330b15312d1e0"
+      "computedHash": "30cbfc236a04f70b63669efb2b722e606252278c33fa29045fe1c0d0b41cd854"
     },
     "codebase-design": {
       "source": "mattpocock/skills",
@@ -53,7 +53,7 @@
       "source": "mattpocock/skills",
       "sourceType": "github",
       "skillPath": "skills/engineering/tdd/SKILL.md",
-      "computedHash": "d5ca5c8ae0615f343f1cfd71591f4a586046d77b1f36e8d67b8f643bad51043e"
+      "computedHash": "76a490fa622bade6abc73d7b9f0573ee736ff5b034af9c8db6bfe13486fbc3a1"
     },
     "teach": {
       "source": "mattpocock/skills",
