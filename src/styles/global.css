@@ -7,8 +7,9 @@
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --font-mono: var(--font-fira-code);
-  --font-sans: var(--font-inter);
+  --font-mono: var(--font-sf-mono);
+  --font-sans: var(--font-sf-pro);
+  --font-serif: var(--font-newyork);
 }
 
 :root {
@@ -28,5 +29,11 @@
     --foreground: oklch(97.1% 0.00265 286);
     --muted: oklch(32.2% 0.00526 286);
     --muted-foreground: oklch(62.2% 0.00742 286);
+  }
+}
+
+@layer base {
+  blockquote {
+    @apply font-serif;
   }
 }

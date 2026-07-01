@@ -48,8 +48,9 @@ const pageTitle = isIndexPage ? title : `${title} · Armand Thuillart`;
     <meta name="twitter:description" content="Designer and developer." />
     <meta name="twitter:image" content={new URL(ogImage.src, Astro.site)} />
 
-    <Font cssVariable="--font-inter" preload={[{ style: "normal" }]} />
-    <Font cssVariable="--font-fira-code" preload={[{ style: "normal" }]} />
+    <Font cssVariable="--font-sf-pro" preload={[{ style: "normal" }]} />
+    <Font cssVariable="--font-sf-mono" preload={[{ style: "normal" }]} />
+    <Font cssVariable="--font-newyork" preload={[{ style: "normal" }]} />
   </head>
 
   <body
