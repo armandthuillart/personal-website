@@ -15,7 +15,7 @@
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "@tailwindcss/vite": "^4.3.2",
-    "knip": "^6.23.0",
+    "knip": "^6.24.0",
     "tailwindcss": "^4.3.2",
     "vite-plus": "0.2.1",
     "wrangler": "^4.106.0"
