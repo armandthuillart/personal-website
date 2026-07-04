@@ -16,6 +16,8 @@
     "@astrojs/sitemap": "^3.7.3",
     "@tailwindcss/vite": "^4.3.2",
     "knip": "^6.24.0",
+    "prettier": "^3.9.4",
+    "prettier-plugin-astro": "^0.14.1",
     "tailwindcss": "^4.3.2",
     "vite-plus": "0.2.2",
     "wrangler": "^4.107.0"
