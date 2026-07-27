@@ -6,46 +6,14 @@ import { defineConfig, fontProviders } from 'astro/config';
 export default defineConfig({
   fonts: [
     {
-      cssVariable: '--font-newyork',
-      name: 'New York',
-      provider: fontProviders.local(),
-      options: {
-        variants: [
-          {
-            src: ['./src/assets/fonts/NewYork.woff2'],
-            style: 'normal',
-            weight: '100 900',
-          },
-        ],
-      },
+      cssVariable: '--font-ibm-plex-mono',
+      name: 'IBM Plex Mono',
+      provider: fontProviders.google(),
     },
     {
-      cssVariable: '--font-sf-mono',
-      name: 'SF Mono',
-      provider: fontProviders.local(),
-      options: {
-        variants: [
-          {
-            src: ['./src/assets/fonts/SF-Mono.woff2'],
-            style: 'normal',
-            weight: '400',
-          },
-        ],
-      },
-    },
-    {
-      cssVariable: '--font-sf-pro',
-      name: 'SF Pro',
-      provider: fontProviders.local(),
-      options: {
-        variants: [
-          {
-            src: ['./src/assets/fonts/SF-Pro.woff2'],
-            style: 'normal',
-            weight: '100 900',
-          },
-        ],
-      },
+      cssVariable: '--font-inter',
+      name: 'Inter',
+      provider: fontProviders.google(),
     },
   ],
   integrations: [mdx(), sitemap()],

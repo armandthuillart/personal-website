@@ -7,9 +7,8 @@
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --font-mono: var(--font-sf-mono);
-  --font-sans: var(--font-sf-pro);
-  --font-serif: var(--font-newyork);
+  --font-mono: var(--font-ibm-plex-mono);
+  --font-sans: var(--font-inter);
 }
 
 :root {
@@ -19,6 +18,12 @@
   --foreground: oklch(23.2% 0.00381 286);
   --muted: oklch(97.1% 0.00265 286);
   --muted-foreground: oklch(64.8% 0.00735 286);
+}
+
+@media (color-gamut: p3) {
+  :root {
+    --accent: color(display-p3 0.007843 0.4 0.8 / 1);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -32,8 +37,14 @@
   }
 }
 
+@media (color-gamut: p3) {
+  .dark {
+    --accent: color(display-p3 0.164706 0.592157 1 / 1);
+  }
+}
+
 @layer base {
   blockquote {
-    @apply font-serif;
+    @apply italic;
   }
 }

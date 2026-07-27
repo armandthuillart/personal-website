@@ -27,12 +27,6 @@
       "formatter": [{ "language_server": { "name": "oxfmt" } }],
       "prettier": { "allowed": false }
     },
-    "JavaScript": {
-      "code_actions_on_format": { "source.fixAll.oxc": true },
-      "format_on_save": "on",
-      "formatter": [{ "language_server": { "name": "oxfmt" } }],
-      "prettier": { "allowed": false }
-    },
     "YAML": {
       "format_on_save": "on",
       "formatter": [{ "language_server": { "name": "oxfmt" } }]

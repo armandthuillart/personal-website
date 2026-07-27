@@ -7,7 +7,10 @@ export const GET: APIRoute = async ({ site }) => {
 
   return rss({
     description: 'Designer and developer.',
-    items: feed.map((item) => ({ ...item.data, link: `${item.id}/` })),
+    items: feed.map((item) => ({
+      ...item.data,
+      link: `${item.id}/`,
+    })),
     site: site!.href,
     title: 'Armand Thuillart',
   });
