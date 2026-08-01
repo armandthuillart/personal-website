@@ -3,7 +3,7 @@ import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 
 export const GET: APIRoute = async ({ site }) => {
-  const feed = (await getCollection('blog')).filter((post) => !post.data.draft);
+  const feed = (await getCollection('blog')).filter((post) => !post.data.draft && !post.data.index);
 
   return rss({
     description: 'Designer and developer.',
