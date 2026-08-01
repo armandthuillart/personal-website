@@ -14,7 +14,7 @@ import Posts from "@components/Posts.astro";
 import Aside from "@components/Aside.astro";
 
 export async function getStaticPaths() {
-    const pages = await getCollection("blog");
+    const pages = (await getCollection("blog")).filter((page) => !page.data.draft);
 
     return pages.map((page) => {
         return {

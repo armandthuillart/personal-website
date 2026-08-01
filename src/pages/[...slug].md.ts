@@ -9,6 +9,6 @@ export const GET: APIRoute = async ({ params }) => {
 };
 
 export async function getStaticPaths() {
-  const pages = await getCollection('blog');
+  const pages = (await getCollection('blog')).filter((page) => !page.data.draft);
   return pages.map((page) => ({ params: { slug: page.id } }));
 }
