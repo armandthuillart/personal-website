@@ -4,10 +4,11 @@ import { Font } from "astro:assets";
 import ogImage from "@public/og-image.png";
 
 interface Props {
+  description: string;
   title: string;
 }
 
-const { title } = Astro.props;
+const { description, title } = Astro.props;
 
 const isIndexPage = Astro.url.pathname === "/";
 const pageTitle = isIndexPage ? title : `${title} · Armand Thuillart`;
@@ -31,7 +32,7 @@ const pageTitle = isIndexPage ? title : `${title} · Armand Thuillart`;
 
     <title>{pageTitle}</title>
     <meta name="title" content={pageTitle} />
-    <meta name="description" content="Designer and developer." />
+    <meta name="description" content={description} />
 
     <meta property="og:url" content={Astro.url} />
     <meta property="og:type" content="website" />
@@ -39,13 +40,13 @@ const pageTitle = isIndexPage ? title : `${title} · Armand Thuillart`;
     <meta property="og:image" content={new URL(ogImage.src, Astro.site)} />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="Armand Thuillart" />
-    <meta property="og:description" content="Designer and developer." />
+    <meta property="og:description" content={description} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@armandthuillart" />
     <meta name="twitter:creator" content="@armandthuillart" />
     <meta name="twitter:title" content={pageTitle} />
-    <meta name="twitter:description" content="Designer and developer." />
+    <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={new URL(ogImage.src, Astro.site)} />
 
     <Font cssVariable="--font-ibm-plex-mono" preload={[{ style: "normal" }]} />

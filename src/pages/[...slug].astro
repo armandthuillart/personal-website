@@ -44,7 +44,7 @@ const components = {
 const date = toMonthYear(page.data.date);
 ---
 
-<BaseLayout title={page.data.title}>
+<BaseLayout description={page.data.description} title={page.data.title}>
     {!index && <Aside />}
 
     <article class="space-y-4">
