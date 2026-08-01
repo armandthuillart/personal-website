@@ -1,6 +1,6 @@
 # Armand Thuillart
 
-> Designer and developer building [Dimsight](https://dimsight.app).
+> Designer and developer building [Dimsight](https://dimsight.com).
 
 ## About
 
@@ -8,10 +8,12 @@ I build polished products, with a focus on 3D product experiences that help busi
 
 ## Pages
 
-- [Games](/games) — Video games changed my life
-- [Music](/music) — Music as a form of therapy
-- [Stack](/stack) — What's in my tech stack
-- [Design](/design) — Design for web standards
+- [Bio](/bio) — How curiosity, design, and technology led me to become a product designer and developer
+- [Books](/books) — Quotes and lessons from the books that changed how I think
+- [Music](/music) — How discovering music production led me to make beats with FL Studio
+- [Stack](/stack) — The tools I use to build software
+- [Design](/design) — Principles for building websites on open web standards
+- [Feedback](/feedback) — Practical advice for responding to angry feedback
 
 ## Links
 
