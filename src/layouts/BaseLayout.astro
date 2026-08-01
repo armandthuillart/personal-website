@@ -5,10 +5,11 @@ import ogImage from "@public/og-image.png";
 
 interface Props {
   description: string;
+  noindex?: boolean;
   title: string;
 }
 
-const { description, title } = Astro.props;
+const { description, noindex = false, title } = Astro.props;
 
 const isIndexPage = Astro.url.pathname === "/";
 const pageTitle = isIndexPage ? title : `${title} · Armand Thuillart`;
@@ -33,6 +34,7 @@ const pageTitle = isIndexPage ? title : `${title} · Armand Thuillart`;
     <title>{pageTitle}</title>
     <meta name="title" content={pageTitle} />
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
 
     <meta property="og:url" content={Astro.url} />
     <meta property="og:type" content="website" />
