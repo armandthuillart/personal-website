@@ -5,12 +5,16 @@ title: Create your team of agents
 date: 2026-06-23
 ---
 
-I migrated [dimsight.com](https://dimsight.com) client-side file conversion to server-side. I had estimated it would take 1-2 weeks, but was able to finish the migration in two days with 20€ in tokens and dozens of agents.
+I moved file conversion on [dimsight.com](https://dimsight.com) from the browser to the server. I thought the migration would take one or two weeks. It took two days, about €20 in token costs, and the help of dozens of coding agents.
 
-## Content is just code
+Agents aren't the problem
 
-I was chatting with potential clients and we started talking about the [dimsight.com](https://dimsight.com) app. I recently shipped a redesign, and as part of that change, all content, and web pages were now built around a new positioning.
+I found the problem while checking errors in the [dimsight.com](https://dimsight.com) app. To ship the first version quickly, I had put all the conversion work in the user's browser.
 
-We went around the table airing our grievances. Client-side conversion wasn't working. We had this beautiful new website design and yet it felt more diffcult than ever to upload in batch.
+That had been a mistake. Conversion failed when someone uploaded a lot of files at once. The new app looked better, but uploading files in batches was harder than before.
 
-Previously, I could open
+Before the app went live, I could ask ChatGPT to change the code and move on. Now it was in production and had converted more than 100 models. Every change felt riskier. Working with agents became clumsy, so I went back to writing code by hand.
+
+At first I thought the agents were the problem. Then I asked a more useful question: did file conversion need to happen in the browser at all? If it moved to the server, I could remove much of the complexity instead of asking agents to work around it. So I asked them how hard the migration would be.
+
+My quick estimate was one or two weeks. Then I let the agents test it.

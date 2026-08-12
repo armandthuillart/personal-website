@@ -11,6 +11,11 @@ export default defineConfig({
       provider: fontProviders.google(),
     },
     {
+      cssVariable: '--font-ibm-plex-serif',
+      name: 'IBM Plex Serif',
+      provider: fontProviders.google(),
+    },
+    {
       cssVariable: '--font-inter',
       name: 'Inter',
       provider: fontProviders.google(),
