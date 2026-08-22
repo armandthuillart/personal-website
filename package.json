@@ -7,11 +7,11 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "^7.2.3"
+    "astro": "^7.2.4"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
-    "@astrojs/mdx": "^7.0.6",
+    "@astrojs/mdx": "^7.0.7",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "@tailwindcss/vite": "^4.3.3",
@@ -20,7 +20,7 @@
     "prettier-plugin-astro": "^0.14.1",
     "tailwindcss": "^4.3.3",
     "vite-plus": "0.2.9",
-    "wrangler": "^4.124.0"
+    "wrangler": "^4.125.0"
   },
   "packageManager": "pnpm@11.21.0"
 }
