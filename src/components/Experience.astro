@@ -1,0 +1,40 @@
+---
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+
+const pages = (await getCollection("experience"))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<div class="grid gap-5 grid-cols-1 sm:grid-cols-2" transition:name="experience">
+  <div class="text-lg font-medium col-span-full">Experience</div>
+
+  {
+    pages.map((page) => (
+      <a class="flex flex-col gap-3" href={`/${page.id}`}>
+        <div
+          class="aspect-video bg-muted rounded-lg"
+          transition:name={`experience-${page.id}`}
+        >
+          <Image
+            alt={page.data.title}
+            class="size-full hidden"
+            height={900}
+            loading="eager"
+            src={page.data.image}
+            width={1600}
+          />
+        </div>
+
+        <div class="flex flex-col text-sm gap-1">
+          <h2 class="line-clamp-1 ">{page.data.title}</h2>
+
+          <p class="text-muted-foreground line-clamp-2">
+            {page.data.description}
+          </p>
+        </div>
+      </a>
+    ))
+  }
+</div>

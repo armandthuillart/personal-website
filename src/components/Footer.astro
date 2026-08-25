@@ -1,10 +1,25 @@
 ---
-import { toParisTime } from "@lib/date";
-
-const display = toParisTime(new Date());
+import Sprite from "@components/Sprite.astro";
 ---
 
-<footer class="text-muted-foreground mt-10 mb-20 flex flex-col text-xs">
-  <hr class="border-border h-px w-12.5" />
-  <time class="mt-9">{display} in Paris, France</time>
-</footer>
+<div class="flex items-center justify-self-end **:dark:text-white">
+  <a
+    class="size-7 flex items-center justify-center"
+    href="https://www.linkedin.com/in/armandthuillart"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <span class="sr-only">LinkedIn</span>
+    <Sprite className="size-4 text-[#0A66C2]" symbol="linkedin" />
+  </a>
+
+  <a
+    class="size-7 flex items-center justify-center"
+    href="https://www.github.com/armandthuillart"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <span class="sr-only">GitHub</span>
+    <Sprite className="size-4 text-black" symbol="github" />
+  </a>
+</div>

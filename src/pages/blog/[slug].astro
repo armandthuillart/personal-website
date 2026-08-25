@@ -4,7 +4,7 @@ import { getCollection, render } from "astro:content";
 import Markdown from "@components/Markdown.astro";
 
 export async function getStaticPaths() {
-  const pages = await getCollection("experience");
+  const pages = await getCollection("blog");
 
   return pages.map((page) => {
     return {
@@ -17,15 +17,16 @@ export async function getStaticPaths() {
 }
 
 const { page } = Astro.props;
+const { slug } = Astro.params;
 const { Content } = await render(page);
 ---
 
-<Layout title={page.data.title}>
+<Layout title={`${page.data.title} · Armand Thuillart`}>
   <div class="grid gap-5 grid-cols-1">
     <div class="grid gap-2 text-muted">
       <div
         class="aspect-video bg-current rounded-lg mb-1"
-        transition:name={`experience-${page.id}`}
+        transition:name={`post-${slug}`}
       >
       </div>
 

@@ -1,0 +1,33 @@
+---
+import "@styles/global.css";
+import Head from "@components/Head.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+
+type Props = { title: string };
+
+const { title } = Astro.props;
+
+const pageName =
+  Astro.url.pathname === "/"
+    ? "page-home"
+    : `page-${Astro.url.pathname.slice(1).replaceAll("/", "-")}`;
+---
+
+<html lang="en" class="px-4 antialiased scheme-light-dark">
+  <head>
+    <Head title={title} />
+  </head>
+
+  <body class="bg-background text-foreground mx-auto container max-w-160">
+    <main class="grid gap-12 py-12">
+      <Header />
+
+      <div class="page-reveal grid gap-12" transition:name={pageName}>
+        <slot />
+      </div>
+
+      <Footer />
+    </main>
+  </body>
+</html>

@@ -45,7 +45,48 @@
 }
 
 @layer base {
-  blockquote {
-    @apply font-serif;
+  * {
+    @apply outline-offset-2 outline-accent focus-visible:outline-2;
   }
+  body,
+  html {
+    @apply overscroll-none;
+  }
+}
+
+.page-reveal {
+  view-transition-class: page-enter page-exit;
+}
+
+@keyframes reveal {
+  0% {
+    scale: 0.8;
+    opacity: 0;
+    translate: 0 4lh;
+    filter: blur(20px);
+  }
+}
+
+::view-transition-new(.page-enter):only-child {
+  animation-name: reveal;
+}
+
+::view-transition-old(.page-exit):only-child {
+  animation-name: reveal;
+  animation-direction: reverse;
+  animation-duration: 100ms;
+}
+
+.via-blur {
+  view-transition-class: via-blur;
+}
+
+@keyframes via-blur {
+  30% {
+    filter: blur(10px);
+  }
+}
+
+::view-transition-image-pair(.via-blur) {
+  animation-name: via-blur;
 }

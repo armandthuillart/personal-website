@@ -1,0 +1,66 @@
+---
+import { Image } from "astro:assets";
+import armand from "@assets/armand.jpg";
+import Tab from "@components/Tab.astro";
+
+const isCollapsed = Astro.url.pathname !== "/";
+---
+
+<div
+  class:list={["grid grid-cols-[auto_1fr] gap-4", !isCollapsed && "lg:pt-24"]}
+>
+  <a
+    class="via-blur rounded-full h-min"
+    href="/"
+    transition:name="header-image"
+  >
+    <Image
+      alt="A portrait of Armand"
+      class:list={["rounded-full", isCollapsed ? "size-8" : "size-32"]}
+      loading="eager"
+      src={armand}
+    />
+  </a>
+
+  <div class="grid gap-4 items-center">
+    <a
+      class:list={[
+        "via-blur font-medium [text-box-edge:cap_alphabetic] [text-box-trim:both]",
+        isCollapsed ? "text-xl self-center" : "text-3xl",
+      ]}
+      href="/"
+      transition:name="header-name"
+    >
+      Armand Thuillart
+    </a>
+
+    {
+      !isCollapsed && (
+        <p>
+          Founder & CEO of{" "}
+          <a
+            target="_blank"
+            class="text-accent underline underline-offset-4 decoration-1"
+            href="https://dimsight.com"
+            rel="noopener noreferrer"
+          >
+            Dimsight
+          </a>
+          . Today, I work across product, design, software, sales and everything
+          in between.
+        </p>
+      )
+    }
+
+    <div
+      class:list={[
+        "via-blur flex gap-2 items-center",
+        isCollapsed && "col-start-2 justify-self-end",
+      ]}
+      transition:name="header-tabs"
+    >
+      <Tab href="/" text="About" />
+      <Tab href="/blog" text="Blog" />
+    </div>
+  </div>
+</div>

@@ -1,46 +1,48 @@
 ---
 import { getCollection } from "astro:content";
-import { toShortDate } from "@lib/date";
-import Footer from "@components/Footer.astro";
+import { Image } from "astro:assets";
+
+interface Props {
+  count: number;
+  label: string;
+}
+
+const { count, label } = Astro.props;
 
 const posts = (await getCollection("blog"))
-  .filter((post) => !post.data.draft && !post.data.index)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, count);
 ---
 
-<div class="mt-9 space-y-1.5">
-  <h3 class="text-muted-foreground">Writing</h3>
+<div class="grid gap-5 grid-cols-1 sm:grid-cols-2" transition:name="posts">
+  <h1 class="text-lg font-medium col-span-full">{label}</h1>
 
-  <ul class="group/ul border-border flex flex-col border-t">
-    {
-      posts.map((post, i) => {
-        const postYear = post.data.date.getFullYear();
-        const prevPost = posts[i - 1];
-        const prevYear = prevPost ? prevPost.data.date.getFullYear() : null;
-        const hideYear = prevYear === postYear;
+  {
+    posts.map((post) => (
+      <a class="flex flex-col gap-3" href={`/blog/${post.id}`}>
+        <div
+          class="aspect-video bg-muted rounded-lg"
+          transition:name={`post-${post.id}`}
+        >
+          <Image
+            alt={post.data.title}
+            class="size-full hidden"
+            height={900}
+            loading="eager"
+            src={post.data.image}
+            width={1600}
+          />
+        </div>
 
-        const date = toShortDate(post.data.date);
+        <div class="flex flex-col text-sm gap-1">
+          <h2 class="line-clamp-1 ">{post.data.title}</h2>
 
-        return (
-          <li class="group/li relative group-hover/ul:**:data-highlight:opacity-50 hover:**:data-highlight:opacity-100">
-            <a
-              class="border-border ml-12 flex h-10 not-group-last/li:border-b sm:ml-25"
-              href={`/${post.id}`}
-            >
-              <div class="flex flex-1 items-center justify-between">
-                <h2 data-highlight>{post.data.title}</h2>
-
-                <time class="text-muted-foreground">
-                  <span data-highlight>{date}</span>
-                  {!hideYear && <span class="absolute left-0">{postYear}</span>}
-                </time>
-              </div>
-            </a>
-          </li>
-        );
-      })
-    }
-  </ul>
+          <p class="text-muted-foreground line-clamp-2">
+            {post.data.description}
+          </p>
+        </div>
+      </a>
+    ))
+  }
 </div>
-
-<Footer />

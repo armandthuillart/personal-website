@@ -1,9 +1,5 @@
 {
   "languages": {
-    "Astro": {
-      "format_on_save": "on",
-      "formatter": [{ "language_server": { "name": "oxfmt" } }]
-    },
     "CSS": {
       "format_on_save": "on",
       "formatter": [{ "language_server": { "name": "oxfmt" } }],
