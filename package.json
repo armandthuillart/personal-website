@@ -16,12 +16,12 @@
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
     "@tailwindcss/vite": "^4.3.3",
-    "knip": "^6.35.1",
-    "prettier": "^3.9.6",
+    "knip": "^6.36.0",
+    "prettier": "^3.9.7",
     "prettier-plugin-astro": "^1.0.0",
     "tailwindcss": "^4.3.3",
-    "vite-plus": "0.3.1",
-    "wrangler": "^4.131.1"
+    "vite-plus": "0.3.2",
+    "wrangler": "^4.132.0"
   },
   "packageManager": "pnpm@12.4.1"
 }
