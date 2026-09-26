@@ -13,7 +13,7 @@ const NameTag: HTMLTag = isCollapsed ? "a" : "div";
   class:list={["grid grid-cols-[auto_1fr] gap-4", !isCollapsed && "lg:pt-24"]}
 >
   <AvatarTag
-    class="via-blur rounded-full h-min"
+    class="rounded-full h-min"
     href={isCollapsed ? "/" : undefined}
     transition:name="header-image"
   >
@@ -28,7 +28,7 @@ const NameTag: HTMLTag = isCollapsed ? "a" : "div";
   <div class="grid gap-4 items-center">
     <NameTag
       class:list={[
-        "via-blur font-medium [text-box-edge:cap_alphabetic] [text-box-trim:both]",
+        "font-medium [text-box-edge:cap_alphabetic] [text-box-trim:both]",
         isCollapsed ? "text-xl self-center" : "text-3xl",
       ]}
       href={isCollapsed ? "/" : undefined}
@@ -61,7 +61,7 @@ const NameTag: HTMLTag = isCollapsed ? "a" : "div";
 
     <div
       class:list={[
-        "via-blur flex gap-2 items-center",
+        "flex gap-2 items-center",
         isCollapsed && "col-start-2 justify-self-end",
       ]}
       transition:name="header-tabs"

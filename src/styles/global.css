@@ -58,35 +58,31 @@
   view-transition-class: page-enter page-exit;
 }
 
-@keyframes reveal {
-  0% {
-    filter: blur(20px);
+@keyframes page-enter {
+  from {
     opacity: 0;
-    scale: 0.8;
-    translate: 0 4lh;
+    translate: 0 0.75rem;
+  }
+}
+
+@keyframes page-exit {
+  to {
+    opacity: 0;
   }
 }
 
 ::view-transition-new(.page-enter):only-child {
-  animation-name: reveal;
+  animation: page-enter 180ms ease-out both;
 }
 
 ::view-transition-old(.page-exit):only-child {
-  animation-name: reveal;
-  animation-direction: reverse;
-  animation-duration: 100ms;
+  animation: page-exit 180ms ease-out both;
 }
 
-.via-blur {
-  view-transition-class: via-blur;
-}
-
-@keyframes via-blur {
-  30% {
-    filter: blur(10px);
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 1ms;
   }
-}
-
-::view-transition-image-pair(.via-blur) {
-  animation-name: via-blur;
 }
