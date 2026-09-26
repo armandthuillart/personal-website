@@ -1,4 +1,17 @@
 {
+  "file_scan_exclusions": [
+    "**/.DS_Store",
+    "**/.git",
+    "**/build",
+    ".astro",
+    ".cloudflare",
+    ".pnpm-store",
+    ".vite-hooks",
+    ".wrangler",
+    "dist",
+    "node_modules",
+    "pnpm-lock.yaml"
+  ],
   "languages": {
     "CSS": {
       "format_on_save": "on",
@@ -30,14 +43,21 @@
   },
   "lsp": {
     "oxfmt": {
+      "binary": {
+        "path": "node_modules/.bin/vp",
+        "arguments": ["fmt", "--lsp"]
+      },
       "initialization_options": {
         "settings": {
-          "configPath": "./vite.config.ts",
           "run": "onSave"
         }
       }
     },
     "oxlint": {
+      "binary": {
+        "path": "node_modules/.bin/vp",
+        "arguments": ["lint", "--lsp"]
+      },
       "initialization_options": {
         "settings": {
           "fixKind": "safe_fix",

@@ -2,6 +2,7 @@
 import Layout from "@layouts/Layout.astro";
 import { getCollection, render } from "astro:content";
 import Markdown from "@components/Markdown.astro";
+import { Image } from "astro:assets";
 
 export async function getStaticPaths() {
   const pages = await getCollection("blog");
@@ -23,11 +24,32 @@ const { Content } = await render(page);
 
 <Layout title={`${page.data.title} · Armand Thuillart`}>
   <div class="grid gap-5 grid-cols-1">
-    <div class="grid gap-2 text-muted">
+    <div class="grid gap-12 text-foreground">
       <div
-        class="aspect-video bg-current rounded-lg mb-1"
+        class="aspect-video overflow-hidden bg-current rounded-lg"
         transition:name={`post-${slug}`}
       >
+        <Image
+          alt={page.data.title}
+          class="size-full object-cover"
+          fetchpriority="high"
+          loading="eager"
+          src={page.data.image}
+        />
+      </div>
+
+      <div class="grid gap-3">
+        <h1 class="px-12 order-2 text-center text-[2rem] leading-[1.2] tracking-[-0.04em] text-balance md:text-[2.5rem] lg:text-5xl">
+          {page.data.title}
+        </h1>
+
+        <p class="order-1 text-center text-sm font-medium">
+          {page.data.date.toLocaleDateString("en-US", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          })}
+        </p>
       </div>
 
       <Markdown Content={Content} />

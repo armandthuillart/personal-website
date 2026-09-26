@@ -2,28 +2,36 @@ import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 import { defineCollection } from 'astro:content';
 
-const schema = z.object({
-  date: z.coerce.date(),
-  description: z.string(),
-  draft: z.boolean(),
-  image: z.string(),
-  title: z.string(),
-});
-
 const blog = defineCollection({
   loader: glob({
     base: './src/content/blog',
     pattern: '**/*.mdx',
   }),
-  schema: () => schema,
+  schema: ({ image }) =>
+    z.object({
+      date: z.coerce.date(),
+      draft: z.boolean(),
+      image: image(),
+      title: z.string(),
+    }),
 });
 
-const experience = defineCollection({
+const ventures = defineCollection({
   loader: glob({
-    base: './src/content/experience',
+    base: './src/content/ventures',
     pattern: '**/*.mdx',
   }),
-  schema: () => schema,
+  schema: ({ image }) =>
+    z.object({
+      date: z.coerce.date(),
+      description: z.string(),
+      draft: z.boolean(),
+      image: image(),
+      title: z.string(),
+    }),
 });
 
-export const collections = { blog, experience };
+export const collections = {
+  blog,
+  ventures,
+};

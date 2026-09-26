@@ -8,11 +8,16 @@ export const GET: APIRoute = async ({ params }) => {
   if (!page) return new Response('Not found', { status: 404 });
 
   return new Response(page.body, {
-    headers: { 'Content-Type': 'text/markdown; charset=utf-8' },
+    headers: {
+      'Content-Type': 'text/markdown; charset=utf-8',
+    },
   });
 };
 
 export async function getStaticPaths() {
-  const pages = await getCollection('blog');
-  return pages.map((page) => ({ params: { slug: page.id } }));
+  return await getCollection('blog').then((pages) =>
+    pages.map((page) => ({
+      params: { slug: page.id },
+    })),
+  );
 }

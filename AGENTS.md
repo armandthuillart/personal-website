@@ -1,3 +1,9 @@
+Check [./CONTEXT.md](./CONTEXT.md) for terminology questions.
+
+For user-facing changes, add a changeset to `.changeset`. Check all changesets there first to see if there are duplicates. We use `@changesets/cli`, but you can create or edit the file manually. Use `package.json#name` for the name.
+
+When changing public-facing behavior, check `README.md` to see if the documentation needs updating.
+
 ## Agent skills
 
 ### Issue tracker
@@ -6,8 +12,12 @@ Issues and PRDs live as Markdown files under `.scratch/`. See `docs/agents/issue
 
 ### Triage labels
 
-The skills use the canonical five-role label vocabulary: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. See `docs/agents/triage-labels.md`.
+Default canonical labels. Agent provider support is detailed here. See `docs/agents/triage.md`.
 
 ### Domain docs
 
-Single-context repo: read `CONTEXT.md` at the root and `docs/adr/` for architectural decisions. See `docs/agents/domain.md`.
+Single-context layout: `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
+
+### Writing conventiosn
+
+Reference `docs/writing.md` for detailed writing conventions.

@@ -1,17 +1,20 @@
 ---
 import { Image } from "astro:assets";
-import armand from "@assets/armand.jpg";
+import armand from "@assets/armand.webp";
 import Tab from "@components/Tab.astro";
+import type { HTMLTag } from "astro/types";
 
 const isCollapsed = Astro.url.pathname !== "/";
+const AvatarTag: HTMLTag = isCollapsed ? "a" : "div";
+const NameTag: HTMLTag = isCollapsed ? "a" : "div";
 ---
 
 <div
   class:list={["grid grid-cols-[auto_1fr] gap-4", !isCollapsed && "lg:pt-24"]}
 >
-  <a
+  <AvatarTag
     class="via-blur rounded-full h-min"
-    href="/"
+    href={isCollapsed ? "/" : undefined}
     transition:name="header-image"
   >
     <Image
@@ -20,37 +23,41 @@ const isCollapsed = Astro.url.pathname !== "/";
       loading="eager"
       src={armand}
     />
-  </a>
+  </AvatarTag>
 
   <div class="grid gap-4 items-center">
-    <a
+    <NameTag
       class:list={[
         "via-blur font-medium [text-box-edge:cap_alphabetic] [text-box-trim:both]",
         isCollapsed ? "text-xl self-center" : "text-3xl",
       ]}
-      href="/"
+      href={isCollapsed ? "/" : undefined}
       transition:name="header-name"
     >
       Armand Thuillart
-    </a>
+    </NameTag>
 
-    {
-      !isCollapsed && (
-        <p>
-          Founder & CEO of{" "}
-          <a
-            target="_blank"
-            class="text-accent underline underline-offset-4 decoration-1"
-            href="https://dimsight.com"
-            rel="noopener noreferrer"
-          >
-            Dimsight
-          </a>
-          . Today, I work across product, design, software, sales and everything
-          in between.
-        </p>
-      )
-    }
+    {!isCollapsed && (
+      <p>
+        Founder & CEO of{" "}
+        <a
+          target="_blank"
+          class="text-accent underline underline-offset-4 decoration-1"
+          href="https://dimsight.com"
+          rel="noopener noreferrer"
+        >
+          Dimsight <span class="-ml-0.5 font-[system-ui]">↗</span>
+        </a>
+        . I previously founded and exited{" "}
+        <a
+          class="text-accent underline underline-offset-4 decoration-1"
+          href="/crosspost"
+        >
+          Crosspost
+        </a>{" "}
+        in late 2025.
+      </p>
+    )}
 
     <div
       class:list={[
