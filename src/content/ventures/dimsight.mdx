@@ -6,18 +6,12 @@ image: ../../assets/dimsight.webp
 title: Dimsight
 ---
 
-Industrial equipment is hard to sell from a screenshot. A client considering a custom machine may want another angle, a closer look at one part, or a clearer view of how the full assembly fits together. When the information lives across screenshots, drawings, and CAD files, each new question can send sales back to engineering for another export.
+I built Dimsight so a manufacturer could share a custom machine with a client through a link. The client can inspect the model in a browser, without installing CAD software or receiving the original STEP file.
 
-I built [Dimsight](https://dimsight.com) to give that conversation one shared product reference. A manufacturer uploads a STEP file and shares a browser-based 3D presentation with a link. The client can inspect the assembly without installing CAD software or receiving the original STEP file.
+The first version ran file conversion in the browser. I put it there to ship quickly. It became a problem when someone uploaded a lot of files at once. Conversion failed.
 
-## A view for the whole conversation
+By then, the app had converted more than 100 models, so each change felt risky. I thought moving conversion to the server would take one or two weeks. It took two days, about €20 in token costs, and the help of dozens of coding agents.
 
-A 3D view helps someone understand a product's shape and assembly. As questions get more precise, exact measurements and technical drawings become useful. Dimsight keeps those ways of inspecting a custom solution connected, so the conversation can move from the whole product to a detail without losing context.
+At first I thought the agents were the problem. Then I asked whether conversion needed to happen in the browser at all. Moving it to the server removed much of the complexity instead of asking agents to work around it. I wrote about the migration [here](/blog/agents).
 
-The goal is to make technical products easier to discuss without asking every person to use the same engineering tools. Sales can share the specific solution under discussion. The client can look around and ask clearer questions. Engineering can focus on the questions that need engineering judgment.
-
-## The hard part is preserving useful detail
-
-Building a viewer is only one part of the work. The product has to prepare CAD data for the browser while keeping the details that matter when someone inspects a machine. It also has to feel simple to a person who has never opened CAD software.
-
-That balance shapes how I build Dimsight. A shared view should make the first questions easier, then give people room to get more precise. I want it to help manufacturers explain a custom solution and help clients understand what they are being asked to buy.
+Dimsight turns STEP files into browser-based 3D presentations. I want clients to be able to inspect a custom machine, check its measurements, and look at its technical drawings in the same place.
