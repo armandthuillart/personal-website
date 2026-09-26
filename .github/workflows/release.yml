@@ -28,6 +28,13 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
+      - name: DEBUG token diagnostics
+        run: |
+          curl -s -o /dev/null -w "list PRs: %{http_code}\n" -H "Authorization: bearer ${{ github.token }}" "https://api.github.com/repos/${{ github.repository }}/pulls?state=open"
+          curl -s -H "Authorization: bearer ${{ github.token }}" "https://api.github.com/repos/${{ github.repository }}/pulls?state=open"
+          echo
+          curl -s -o /dev/null -w "repo: %{http_code}\n" -H "Authorization: bearer ${{ github.token }}" "https://api.github.com/repos/${{ github.repository }}"
+
       - uses: changesets/action@v2
         with:
           publish-script: pnpm changeset publish
