@@ -21,12 +21,12 @@ const posts = (await getCollection("blog"))
   {posts.map((post) => (
     <a class="flex flex-col gap-3" href={`/blog/${post.id}`}>
       <div
-        class="aspect-video bg-muted rounded-lg overflow-hidden"
+        class="aspect-video relative after:absolute after:inset-0 after:border after:rounded-lg after:border-border bg-muted rounded-lg overflow-hidden"
         transition:name={`post-${post.id}`}
       >
         <Image
           alt={post.data.title}
-          class="size-full"
+          class="size-full dark:invert"
           height={900}
           loading="eager"
           src={post.data.image}

@@ -13,12 +13,12 @@ const pages = (await getCollection("ventures"))
   {pages.map((page) => (
     <a class="flex flex-col gap-3" href={`/${page.id}`}>
       <div
-        class="aspect-video bg-muted rounded-lg overflow-hidden"
+        class="aspect-video relative after:absolute after:inset-0 after:border after:rounded-lg after:border-border bg-muted rounded-lg overflow-hidden"
         transition:name={`venture-${page.id}`}
       >
         <Image
           alt={page.data.title}
-          class="size-full"
+          class="size-full dark:invert"
           height={900}
           loading="eager"
           src={page.data.image}
