@@ -25,7 +25,7 @@
     "@changesets/changelog-github": "^1.0.1",
     "@changesets/cli": "^3.0.3",
     "@tailwindcss/vite": "^4.3.3",
-    "knip": "^6.38.0",
+    "knip": "^6.39.0",
     "oxfmt": "0.71.0",
     "oxlint": "1.86.0",
     "prettier": "^3.9.9",
@@ -33,7 +33,7 @@
     "sharp": "^0.35.5",
     "tailwindcss": "^4.3.3",
     "vite-plus": "1.0.0",
-    "wrangler": "^4.143.0"
+    "wrangler": "^4.145.0"
   },
-  "packageManager": "pnpm@12.6.0"
+  "packageManager": "pnpm@12.8.1"
 }
