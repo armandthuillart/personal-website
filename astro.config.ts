@@ -1,9 +1,11 @@
+import cloudflare from '@astrojs/cloudflare';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig, fontProviders } from 'astro/config';
 
 export default defineConfig({
+  adapter: cloudflare(),
   fonts: [
     {
       cssVariable: '--font-ibm-plex-mono',
@@ -11,17 +13,35 @@ export default defineConfig({
       provider: fontProviders.google(),
     },
     {
+      cssVariable: '--font-ibm-plex-sans',
+      name: 'IBM Plex Sans',
+      provider: fontProviders.google(),
+    },
+    {
       cssVariable: '--font-ibm-plex-serif',
       name: 'IBM Plex Serif',
       provider: fontProviders.google(),
     },
-    {
-      cssVariable: '--font-inter',
-      name: 'Inter',
-      provider: fontProviders.google(),
-    },
   ],
-  integrations: [mdx(), sitemap()],
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'es', 'fr'],
+    routing: { prefixDefaultLocale: true },
+  },
+  integrations: [
+    mdx(),
+    sitemap({
+      filter: (page) => page !== 'https://armandthuillart.com/',
+      i18n: {
+        defaultLocale: 'en',
+        locales: {
+          en: 'en-US',
+          es: 'es-ES',
+          fr: 'fr-FR',
+        },
+      },
+    }),
+  ],
   site: 'https://armandthuillart.com',
   vite: { plugins: [tailwindcss()] },
 });

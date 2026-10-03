@@ -1,10 +1,7 @@
 ---
-import Layout from "@layouts/Layout.astro";
-import Posts from "@components/Posts.astro";
-import Ventures from "@components/Ventures.astro";
----
+import { getRelativeLocaleUrl } from "astro:i18n";
 
-<Layout title="Armand Thuillart">
-  <Ventures />
-  <Posts count={2} label="Latest posts" />
-</Layout>
+export const prerender = false;
+
+return Astro.redirect(getRelativeLocaleUrl(Astro.preferredLocale ?? "en", ""));
+---

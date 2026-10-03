@@ -1,6 +1,7 @@
 *.tsbuildinfo
 .DS_Store
 .astro
+.playwright-mcp
 .scratch
 .wrangler
 dist

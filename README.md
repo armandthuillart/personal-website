@@ -36,7 +36,7 @@ The site runs at `http://localhost:4321`.
 
 ## Content
 
-Posts live in `src/content/blog/`.
+Posts live in `src/content/blog/<locale>/`.
 
 **Frontmatter (`src/content.config.ts`)**
 
@@ -47,6 +47,14 @@ Posts live in `src/content/blog/`.
 - `draft` (boolean, optional)
 
 Posts with an `icon` and `date` (and `draft` not `true`) appear on the home page.
+
+## Languages
+
+Every page lives under its locale: `/en/` (default), `/fr/` or `/es/`. UI strings are in `src/lib/i18n.ts`.
+
+`/` is the only page rendered on demand (`@astrojs/cloudflare`). It redirects to the visitor's `Astro.preferredLocale`, or `/en/`, on the server.
+
+Content is stored per locale, for example `src/content/blog/fr/bio.mdx`. To translate a post or venture, add a file with the same name under its locale folder; anything not translated falls back to the English one.
 
 ## Deploy
 

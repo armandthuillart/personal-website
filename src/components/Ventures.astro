@@ -1,20 +1,23 @@
 ---
-import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { getLocale, getTranslation, localized } from "@lib/i18n";
 
-const pages = (await getCollection("ventures"))
-  .filter((p) => !p.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const locale = getLocale(Astro.currentLocale);
+const t = getTranslation(locale);
+
+const pages = (await localized("ventures", locale))
+  .filter(({ entry }) => !entry.data.draft)
+  .sort((a, b) => b.entry.data.date.valueOf() - a.entry.data.date.valueOf());
 ---
 
-<div class="grid gap-5 grid-cols-1 sm:grid-cols-2" transition:name="venture">
-  <div class="text-lg font-medium col-span-full">Ventures</div>
+<div class="grid gap-5 grid-cols-1 sm:grid-cols-2">
+  <div class="text-lg font-medium col-span-full">{t("ventures")}</div>
 
-  {pages.map((page) => (
-    <a class="flex flex-col gap-3" href={`/${page.id}`}>
+  {pages.map(({ entry: page, slug }) => (
+    <a class="flex flex-col gap-3" href={getRelativeLocaleUrl(locale, slug)}>
       <div
         class="aspect-video relative after:absolute after:inset-0 after:border after:rounded-lg after:border-border bg-muted rounded-lg overflow-hidden"
-        transition:name={`venture-${page.id}`}
       >
         <Image
           alt={page.data.title}

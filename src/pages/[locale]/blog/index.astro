@@ -1,0 +1,13 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Posts from "@components/Posts.astro";
+import { getTranslation, localeParams } from "@lib/i18n";
+
+export const getStaticPaths = localeParams;
+
+const t = getTranslation(Astro.currentLocale);
+---
+
+<Layout title={t("blog")}>
+  <Posts count={6} label={t("allPosts")} />
+</Layout>
