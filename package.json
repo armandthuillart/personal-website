@@ -15,20 +15,20 @@
     "sync": "astro sync"
   },
   "dependencies": {
-    "astro": "^7.3.5"
+    "astro": "^7.3.6"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
-    "@astrojs/cloudflare": "^14.3.3",
-    "@astrojs/mdx": "^8.0.2",
+    "@astrojs/cloudflare": "^14.3.4",
+    "@astrojs/mdx": "^8.0.3",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
     "@changesets/changelog-github": "^1.0.1",
     "@changesets/cli": "^3.0.3",
     "@tailwindcss/vite": "^4.3.3",
-    "knip": "^6.39.0",
-    "oxfmt": "0.71.0",
-    "oxlint": "1.86.0",
+    "knip": "^6.40.0",
+    "oxfmt": "0.72.0",
+    "oxlint": "1.87.0",
     "prettier": "^3.9.9",
     "prettier-plugin-astro": "^1.1.0",
     "sharp": "^0.35.5",
@@ -36,5 +36,5 @@
     "vite-plus": "1.0.0",
     "wrangler": "^4.147.0"
   },
-  "packageManager": "pnpm@12.8.1"
+  "packageManager": "pnpm@12.9.1"
 }
