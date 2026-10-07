@@ -27,14 +27,12 @@
     "@changesets/cli": "^3.0.3",
     "@tailwindcss/vite": "^4.3.3",
     "knip": "^6.40.0",
-    "oxfmt": "0.72.0",
-    "oxlint": "1.87.0",
     "prettier": "^3.9.9",
     "prettier-plugin-astro": "^1.1.0",
     "sharp": "^0.35.5",
     "tailwindcss": "^4.3.3",
-    "vite-plus": "1.0.0",
-    "wrangler": "^4.147.0"
+    "vite-plus": "catalog:",
+    "wrangler": "^4.148.0"
   },
   "packageManager": "pnpm@12.9.1"
 }
