@@ -2,14 +2,14 @@
 import Layout from "@layouts/Layout.astro";
 import Posts from "@components/Posts.astro";
 import Ventures from "@components/Ventures.astro";
-import { getTranslation, localeParams } from "@lib/i18n";
+import { getStaticLocalePaths, getTranslations } from "@lib/i18n";
 
-export const getStaticPaths = localeParams;
+export const getStaticPaths = getStaticLocalePaths;
 
-const t = getTranslation(Astro.currentLocale);
+const t = getTranslations("Posts");
 ---
 
 <Layout title="Armand Thuillart">
-  <Ventures />
-  <Posts count={2} label={t("latestPosts")} />
+    <Ventures />
+    <Posts count={2} label={t("latest")} />
 </Layout>

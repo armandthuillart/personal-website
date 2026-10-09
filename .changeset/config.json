@@ -1,6 +1,0 @@
-{
-  "$schema": "https://unpkg.com/@changesets/config@latest/schema.json",
-  "baseBranch": "main",
-  "changelog": ["@changesets/changelog-github", { "repo": "armandthuillart/personal-website" }],
-  "privatePackages": { "tag": true, "version": true }
-}

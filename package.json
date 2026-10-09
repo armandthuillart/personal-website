@@ -1,6 +1,5 @@
 {
   "name": "personal-website",
-  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -11,11 +10,12 @@
     "deploy": "wrangler deploy",
     "dev": "astro dev",
     "lint": "vp lint",
+    "prepare": "vp config",
     "preview": "astro preview",
     "sync": "astro sync"
   },
   "dependencies": {
-    "astro": "^7.3.7"
+    "astro": "^7.3.8"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
@@ -23,16 +23,11 @@
     "@astrojs/mdx": "^8.0.3",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
-    "@changesets/changelog-github": "^1.0.1",
-    "@changesets/cli": "^3.0.3",
     "@tailwindcss/vite": "^4.3.3",
-    "knip": "^6.40.0",
-    "prettier": "^3.9.9",
-    "prettier-plugin-astro": "^1.1.0",
-    "sharp": "^0.35.5",
+    "knip": "^6.41.0",
     "tailwindcss": "^4.3.3",
     "vite-plus": "catalog:",
-    "wrangler": "^4.148.0"
+    "wrangler": "^4.149.0"
   },
   "packageManager": "pnpm@12.10.1"
 }

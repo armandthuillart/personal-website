@@ -1,44 +1,44 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import { render } from "astro:content";
-import { localizedPaths } from "@lib/i18n";
+import { getStaticPathsByLocale } from "@lib/i18n";
 import Markdown from "@components/Markdown.astro";
 import { Image } from "astro:assets";
 
-export const getStaticPaths = () => localizedPaths("ventures");
+export const getStaticPaths = () => getStaticPathsByLocale("ventures");
 
 const { entry: page } = Astro.props;
 const { Content } = await render(page);
 ---
 
 <Layout title={page.data.title}>
-  <div class="grid gap-5 grid-cols-1">
-    <div class="grid gap-12 text-foreground">
-      <div class="aspect-video overflow-hidden bg-current rounded-lg">
-        <Image
-          alt={page.data.title}
-          class="size-full dark:invert object-cover"
-          fetchpriority="high"
-          loading="eager"
-          src={page.data.image}
-        />
-      </div>
+    <div class="grid gap-5 grid-cols-1">
+        <div class="grid gap-12 text-foreground">
+            <div class="aspect-video overflow-hidden bg-current rounded-lg">
+                <Image
+                    alt={page.data.title}
+                    class="size-full dark:invert object-cover"
+                    fetchpriority="high"
+                    loading="eager"
+                    src={page.data.image}
+                />
+            </div>
 
-      <div class="flex flex-col gap-3">
-        <h1 class="order-2 text-center text-[2rem] leading-[1.2] tracking-[-0.04em] text-balance md:text-[2.5rem] lg:text-5xl">
-          {page.data.title}
-        </h1>
+            <div class="flex flex-col gap-3">
+                <h1 class="order-2 text-center text-[2rem] leading-[1.2] tracking-[-0.04em] text-balance md:text-[2.5rem] lg:text-5xl">
+                    {page.data.title}
+                </h1>
 
-        <p class="order-1 text-center text-sm font-medium">
-          {page.data.date.toLocaleDateString(Astro.currentLocale, {
-            day: "numeric",
-            month: "long",
-            year: "numeric",
-          })}
-        </p>
-      </div>
+                <p class="order-1 text-center text-sm font-medium">
+                    {page.data.date.toLocaleDateString(Astro.currentLocale, {
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric",
+                    })}
+                </p>
+            </div>
 
-      <Markdown Content={Content} />
+            <Markdown Content={Content} />
+        </div>
     </div>
-  </div>
 </Layout>

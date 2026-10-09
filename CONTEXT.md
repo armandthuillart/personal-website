@@ -13,7 +13,7 @@ A post or venture marked `draft: true` in its frontmatter. Drafts are excluded f
 _Avoid_: unpublished, hidden
 
 **Locale**:
-One of `en` (default), `fr` or `es`. Every page is served under its locale prefix, such as `/fr/blog`.
+One of `en` (default) or `fr`. Every page is served under its locale prefix, such as `/fr/blog`.
 _Avoid_: language version
 
 **Venture**:

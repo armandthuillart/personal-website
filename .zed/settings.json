@@ -16,19 +16,33 @@
     "CSS": {
       "format_on_save": "on",
       "formatter": [{ "language_server": { "name": "oxfmt" } }],
-      "language_servers": ["oxfmt", "tailwindcss-intellisense-css"]
+      "language_servers": ["oxfmt", "tailwindcss-intellisense-css"],
+      "prettier": { "allowed": false }
     },
     "HTML": {
       "format_on_save": "on",
-      "formatter": [{ "language_server": { "name": "oxfmt" } }]
+      "formatter": [{ "language_server": { "name": "oxfmt" } }],
+      "prettier": { "allowed": false }
     },
     "JSON": {
       "format_on_save": "on",
-      "formatter": [{ "language_server": { "name": "oxfmt" } }]
+      "formatter": [{ "language_server": { "name": "oxfmt" } }],
+      "prettier": { "allowed": false }
+    },
+    "JSONC": {
+      "format_on_save": "on",
+      "formatter": [{ "language_server": { "name": "oxfmt" } }],
+      "prettier": { "allowed": false }
     },
     "Markdown": {
       "format_on_save": "on",
-      "formatter": [{ "language_server": { "name": "oxfmt" } }]
+      "formatter": [{ "language_server": { "name": "oxfmt" } }],
+      "prettier": { "allowed": false }
+    },
+    "MDX": {
+      "format_on_save": "on",
+      "formatter": [{ "language_server": { "name": "oxfmt" } }],
+      "prettier": { "allowed": false }
     },
     "TypeScript": {
       "code_actions_on_format": { "source.fixAll.oxc": true },
@@ -38,25 +52,27 @@
     },
     "YAML": {
       "format_on_save": "on",
-      "formatter": [{ "language_server": { "name": "oxfmt" } }]
+      "formatter": [{ "language_server": { "name": "oxfmt" } }],
+      "prettier": { "allowed": false }
     }
   },
   "lsp": {
     "oxfmt": {
       "binary": {
-        "path": "node_modules/.bin/vp",
-        "arguments": ["fmt", "--lsp"]
+        "arguments": ["fmt", "--lsp"],
+        "path": "node_modules/.bin/vp"
       },
       "initialization_options": {
         "settings": {
+          "fmt.configPath": "./vite.config.ts",
           "run": "onSave"
         }
       }
     },
     "oxlint": {
       "binary": {
-        "path": "node_modules/.bin/vp",
-        "arguments": ["lint", "--lsp"]
+        "arguments": ["lint", "--lsp"],
+        "path": "node_modules/.bin/vp"
       },
       "initialization_options": {
         "settings": {

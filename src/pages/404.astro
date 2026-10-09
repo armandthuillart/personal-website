@@ -1,15 +1,15 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import { getTranslation } from "@lib/i18n";
+import { getTranslations } from "@lib/i18n";
 
 export const prerender = false;
 
-const t = getTranslation(Astro.currentLocale);
+const t = getTranslations("NotFound");
 ---
 
-<Layout title={t("notFound")}>
-  <article class="space-y-3">
-    <h1 class="text-xl font-medium">{t("notFound")}</h1>
-    <p class="text-muted-foreground text-sm">{t("notFoundText")}</p>
-  </article>
+<Layout title={t("title")}>
+    <article class="space-y-3">
+        <h1 class="text-xl font-medium">{t("title")}</h1>
+        <p class="text-muted-foreground text-sm">{t("description")}</p>
+    </article>
 </Layout>

@@ -9,20 +9,23 @@ type Props = { title: string };
 const { title } = Astro.props;
 ---
 
-<html lang={Astro.currentLocale ?? "en"} class="px-4 antialiased scheme-light-dark">
-  <head>
-    <Head title={title} />
-  </head>
+<html
+    lang={Astro.currentLocale ?? "en"}
+    class="px-4 antialiased scheme-light-dark"
+>
+    <head>
+        <Head title={title} />
+    </head>
 
-  <body class="bg-background text-foreground mx-auto container max-w-160">
-    <main class="grid gap-12 py-12">
-      <Header />
+    <body class="bg-background text-foreground mx-auto container max-w-160">
+        <main class="grid gap-12 py-12">
+            <Header />
 
-      <div class="grid gap-12">
-        <slot />
-      </div>
+            <div class="grid gap-12">
+                <slot />
+            </div>
 
-      <Footer />
-    </main>
-  </body>
+            <Footer />
+        </main>
+    </body>
 </html>

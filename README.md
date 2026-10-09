@@ -50,7 +50,7 @@ Posts with an `icon` and `date` (and `draft` not `true`) appear on the home page
 
 ## Languages
 
-Every page lives under its locale: `/en/` (default), `/fr/` or `/es/`. UI strings are in `src/lib/i18n.ts`.
+Every page lives under its locale: `/en/` (default) or `/fr/`. UI strings are in `messages/<locale>.json`, grouped by namespace (`Header`, `Ventures`, ...) and read with `getTranslations(namespace)` from `src/lib/i18n.ts`; the locale of the current request is set by `src/middleware.ts`; `getPathname(path)` builds locale-prefixed links. Messages support `{name}` interpolation (`t(key, { name })`) and `<tag>rich text</tag>` (`t.rich(key, { tag })`, rendered with `set:html`).
 
 `/` is the only page rendered on demand (`@astrojs/cloudflare`). It redirects to the visitor's `Astro.preferredLocale`, or `/en/`, on the server.
 

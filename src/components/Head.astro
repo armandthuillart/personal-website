@@ -1,19 +1,17 @@
 ---
 import ogImage from "@public/og-image.png";
 import { Font } from "astro:assets";
-import { getRelativeLocaleUrl } from "astro:i18n";
-import { getLocale, getTranslation } from "@lib/i18n";
+import { getLocale, getPathname, getTranslations } from "@lib/i18n";
 
 interface Props {
-  title: string;
+    title: string;
 }
 
 const { title } = Astro.props;
 
-const locale = getLocale(Astro.currentLocale);
-const t = getTranslation(locale);
+const t = getTranslations("Head");
 
-const isIndexPage = Astro.url.pathname === getRelativeLocaleUrl(locale, "");
+const isIndexPage = Astro.url.pathname === getPathname();
 const pageTitle = isIndexPage ? title : `${title} | Armand Thuillart`;
 ---
 
@@ -23,10 +21,10 @@ const pageTitle = isIndexPage ? title : `${title} | Armand Thuillart`;
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link
-  rel="alternate"
-  type="application/rss+xml"
-  href={new URL(getRelativeLocaleUrl(locale, "rss.xml"), Astro.site)}
-  title="Armand Thuillart"
+    rel="alternate"
+    type="application/rss+xml"
+    href={new URL(getPathname("rss.xml"), Astro.site)}
+    title="Armand Thuillart"
 />
 <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
 
@@ -38,7 +36,7 @@ const pageTitle = isIndexPage ? title : `${title} | Armand Thuillart`;
 <meta property="og:type" content="website" />
 <meta property="og:title" content={pageTitle} />
 <meta property="og:image" content={new URL(ogImage.src, Astro.site)} />
-<meta property="og:locale" content={locale} />
+<meta property="og:locale" content={getLocale()} />
 <meta property="og:site_name" content="Armand Thuillart" />
 <meta property="og:description" content={t("description")} />
 
