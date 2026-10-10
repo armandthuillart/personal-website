@@ -15,7 +15,3 @@ Default canonical labels. Agent provider support is detailed here. See `docs/age
 ### Domain docs
 
 Single-context layout: `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
-
-### Writing conventiosn
-
-Reference `docs/writing.md` for detailed writing conventions.

@@ -3,8 +3,8 @@ import { AsyncLocalStorage } from 'node:async_hooks';
 import { getCollection } from 'astro:content';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 
-import en from '../../messages/en.json';
-import fr from '../../messages/fr.json';
+import en from '../messages/en.json';
+import fr from '../messages/fr.json';
 
 type Chunks = (chunks: string) => string;
 
