@@ -1,11 +1,25 @@
+import { readdirSync } from 'node:fs';
+
 import cloudflare from '@astrojs/cloudflare';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig, fontProviders } from 'astro/config';
 
+const site = 'https://armandthuillart.com';
+const slugs = (collection: string) =>
+  readdirSync(`./src/content/${collection}/en`).map((file) => file.replace(/\.mdx$/, ''));
+
+// Pages are rendered on demand, so the sitemap cannot discover them.
+const customPages = ['en', 'fr'].flatMap((locale) =>
+  ['', 'blog', ...slugs('ventures'), ...slugs('blog').map((slug) => `blog/${slug}`)].map(
+    (path) => `${site}/${locale}/${path}${path ? '/' : ''}`,
+  ),
+);
+
 export default defineConfig({
   adapter: cloudflare(),
+  output: 'server',
   fonts: [
     {
       cssVariable: '--font-ibm-plex-mono',
@@ -31,7 +45,8 @@ export default defineConfig({
   integrations: [
     mdx(),
     sitemap({
-      filter: (page) => page !== 'https://armandthuillart.com/',
+      customPages,
+      filter: (page) => page !== `${site}/`,
       i18n: {
         defaultLocale: 'en',
         locales: {
@@ -41,6 +56,6 @@ export default defineConfig({
       },
     }),
   ],
-  site: 'https://armandthuillart.com',
+  site,
   vite: { plugins: [tailwindcss()] },
 });

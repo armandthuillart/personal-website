@@ -19,13 +19,17 @@ const { title } = Astro.props;
 
     <body class="bg-background text-foreground mx-auto container max-w-160">
         <main class="grid gap-12 py-12">
-            <Header />
+            <header>
+                <Header />
+            </header>
 
             <div class="grid gap-12">
                 <slot />
             </div>
 
-            <Footer />
+            <footer class="grid">
+                <Footer />
+            </footer>
         </main>
     </body>
 </html>

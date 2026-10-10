@@ -14,9 +14,9 @@ export type Locale = (typeof locales)[number];
 const messages: Record<Locale, typeof en> = { en, fr };
 export const localeStore = new AsyncLocalStorage<Locale>();
 
+export const isLocale = (value?: string): value is Locale => locales.includes(value as Locale);
 export const getLocale = () => localeStore.getStore() ?? 'en';
 export const getPathname = (path = '', locale = getLocale()) => getRelativeLocaleUrl(locale, path);
-export const getStaticLocalePaths = () => locales.map((locale) => ({ params: { locale } }));
 
 export function getTranslations<N extends keyof typeof en>(namespace: N, locale = getLocale()) {
   const strings: Record<string, string> = messages[locale][namespace];
@@ -49,14 +49,6 @@ export async function getCollectionByLocale<C extends 'blog' | 'ventures'>(
     });
 }
 
-export async function getStaticPathsByLocale(collection: 'blog' | 'ventures') {
-  const paths = [];
-
-  for (const locale of locales) {
-    for (const { entry, slug } of await getCollectionByLocale(collection, locale)) {
-      paths.push({ params: { locale, slug }, props: { entry } });
-    }
-  }
-
-  return paths;
+export async function getEntryByLocale(collection: 'blog' | 'ventures', slug?: string) {
+  return (await getCollectionByLocale(collection)).find((item) => item.slug === slug)?.entry;
 }

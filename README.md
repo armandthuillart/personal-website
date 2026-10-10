@@ -52,9 +52,15 @@ Posts with an `icon` and `date` (and `draft` not `true`) appear on the home page
 
 Every page lives under its locale: `/en/` (default) or `/fr/`. UI strings are in `messages/<locale>.json`, grouped by namespace (`Header`, `Ventures`, ...) and read with `getTranslations(namespace)` from `src/lib/i18n.ts`; the locale of the current request is set by `src/middleware.ts`; `getPathname(path)` builds locale-prefixed links. Messages support `{name}` interpolation (`t(key, { name })`) and `<tag>rich text</tag>` (`t.rich(key, { tag })`, rendered with `set:html`).
 
-`/` is the only page rendered on demand (`@astrojs/cloudflare`). It redirects to the visitor's `Astro.preferredLocale`, or `/en/`, on the server.
+Pages are rendered on demand (`@astrojs/cloudflare`). `/` redirects to the visitor's `Astro.preferredLocale`, or `/en/`, on the server.
 
 Content is stored per locale, for example `src/content/blog/fr/bio.mdx`. To translate a post or venture, add a file with the same name under its locale folder; anything not translated falls back to the English one.
+
+## Markdown for agents
+
+Every page is rendered on demand. A request with `Accept: text/markdown` gets the page as markdown instead of HTML; browsers keep getting HTML. `src/middleware.ts` converts the rendered HTML (header and footer stripped). Posts are also available as raw markdown at `/<locale>/blog/<slug>.md`.
+
+The sitemap cannot discover on-demand pages, so `astro.config.ts` builds its page list from the files in `src/content/`.
 
 ## Deploy
 

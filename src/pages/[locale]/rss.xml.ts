@@ -1,14 +1,6 @@
 import rss from '@astrojs/rss';
-import {
-  getLocale,
-  getPathname,
-  getTranslations,
-  getStaticLocalePaths,
-  getCollectionByLocale,
-} from '@lib/i18n';
+import { getLocale, getPathname, getTranslations, getCollectionByLocale } from '@lib/i18n';
 import type { APIRoute } from 'astro';
-
-export const getStaticPaths = getStaticLocalePaths;
 
 export const GET: APIRoute = async ({ site }) => {
   const locale = getLocale();

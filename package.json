@@ -15,7 +15,8 @@
     "sync": "astro sync"
   },
   "dependencies": {
-    "astro": "^7.3.8"
+    "astro": "^7.3.8",
+    "turndown": "^7.2.4"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
@@ -24,6 +25,7 @@
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
     "@tailwindcss/vite": "^4.3.3",
+    "@types/turndown": "^5.0.6",
     "knip": "^6.41.0",
     "tailwindcss": "^4.3.3",
     "vite-plus": "catalog:",
